@@ -55,15 +55,15 @@ export default function App() {
           <div>
             <div className="flex items-center gap-2 mb-1.5">
               <span className="bg-emerald-950/30 border border-emerald-900/30 text-emerald-400 text-[10px] font-mono font-bold uppercase px-2.5 py-0.5 rounded-full tracking-wider">
-                kernel.txt v0.1.0
+                Jubilee v3.2.4
               </span>
             </div>
             <h1 className="font-display font-bold text-3xl tracking-tight text-slate-100 flex items-center gap-2">
               JUBILEE VM PLAYGROUND
             </h1>
             <p className="text-xs text-slate-400 mt-1 max-w-2xl leading-relaxed">
-              An event-sourced, capability-scoped graph engine that preserves complete historical paths.
-              Explore the Autodisco sovereign cluster specs, execute non-erasure state transformations, and run the automated test suite.
+              A formal, deterministic, non-erasure graph engine for the Jubilee-Engine-VM. 
+              Executes stable multi-graph compilation, projects execution and ontology DAGs, and certifies structural stability using Standalone Verifier receipts and the v3.2.4 Reproducibility standard.
             </p>
           </div>
           
@@ -125,7 +125,7 @@ export default function App() {
             }`}
           >
             <Code className="w-4 h-4" />
-            Python Codebase files (v0.1.0)
+            Python Reference Core (v3.2.4)
           </button>
         </nav>
 
