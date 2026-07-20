@@ -69,7 +69,7 @@ export default function App() {
           
           <div className="flex gap-2.5">
             <a
-              href="https://github.com/the-static-collective/jubilee-vm"
+              href="https://github.com/the-static-collective/Jubilee-Engine-VM"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 rounded-lg text-xs font-semibold cursor-pointer transition-colors"
