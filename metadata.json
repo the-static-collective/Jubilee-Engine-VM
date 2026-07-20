@@ -1,0 +1,6 @@
+{
+  "name": "Jubilee VM & Autodisco Cluster Explorer",
+  "description": "An interactive full-stack playground for verifying Jubilee VM's non-erasure engines, tracing witness ancestry, simulating adversarial scopes, auditing Autodisco manifests, and exporting Python codebases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

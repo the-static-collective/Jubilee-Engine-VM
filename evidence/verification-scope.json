@@ -1,0 +1,16 @@
+{
+  "verification_mode": "local_reproducibility",
+  "authenticated": false,
+  "signature_required": false,
+  "claims": [
+    "inputs match hashes",
+    "outputs reproduce hashes",
+    "projection constraints pass"
+  ],
+  "does_not_claim": [
+    "human authorship",
+    "external authority",
+    "semantic truth",
+    "permanent availability"
+  ]
+}
