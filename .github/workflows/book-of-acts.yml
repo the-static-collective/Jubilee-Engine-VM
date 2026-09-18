@@ -27,6 +27,9 @@ jobs:
       - name: Book of Acts tests
         run: npm run test:book-of-acts
 
+      - name: Reconstitution crossing tests
+        run: npm run test:reconstitution-crossing
+
       - name: Typecheck
         run: npm run lint
 

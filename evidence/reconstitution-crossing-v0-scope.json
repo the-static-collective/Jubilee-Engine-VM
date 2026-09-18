@@ -1,0 +1,30 @@
+{
+  "profile": "nuthang/reconstitution-crossing/v0",
+  "verification_mode": "local_crossing_specimen",
+  "claims": [
+    "source Book of Acts receipt is verified before seed construction",
+    "seed identity is content-addressed",
+    "fresh hatch occurrence yields a new particular",
+    "transported authority claims do not become effective authority",
+    "only explicit local grants can permit a matching action"
+  ],
+  "does_not_claim": [
+    "identity continuity",
+    "authority transit",
+    "human worth",
+    "economic value",
+    "legal validity",
+    "general agent competence",
+    "AI training consent",
+    "Seedbank or ELF ownership"
+  ],
+  "runtime_non_claims": [
+    "seed != identity continuity",
+    "seed != authority",
+    "receipt != authority",
+    "knowledge != permission",
+    "capability != permission",
+    "reconstitution != inherited legitimacy",
+    "seed != AI training consent"
+  ]
+}
