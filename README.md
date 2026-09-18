@@ -161,3 +161,15 @@ The first executable **Book of Acts** profile preserves bounded attributable hum
 Book of Acts v0 does **not** issue tokens, money, reputation, authority, or AI-training permission.
 
 > **THE PARTICULAR SURVIVES EVERY PROJECTION.**
+
+## Experimental reconstitution crossing v0
+
+The next bounded specimen connects verified Book of Acts history to a fresh local hatch without importing authority.
+
+- Spec: [`docs/reconstitution-crossing-v0.md`](docs/reconstitution-crossing-v0.md)
+- Scope: [`evidence/reconstitution-crossing-v0-scope.json`](evidence/reconstitution-crossing-v0-scope.json)
+- Test: `npm run test:reconstitution-crossing`
+
+The profile is intentionally only a Jubilee-side adapter/specimen. Seedbank / ELF semantics remain externally owned.
+
+> **THE SEED CROSSES. THE CROWN DOES NOT.**
