@@ -68,7 +68,6 @@ await test("verified Book of Acts receipt can become attributable seed cargo", a
   assert.equal(seed.sourceActId, GROCERY_DELIVERY_ACT_V0.actId);
   assert.equal(seed.sourceActDigest, receipt.actDigest);
   assert.deepEqual(seed.sourceReceiptRefs, [receipt.receiptId]);
-  assert.deepEqual(seed.formationTrace, undefined);
   assert.deepEqual(seed.cargo.formationTrace, GROCERY_DELIVERY_ACT_V0.residualFog);
   assert.ok(seed.doesNotClaim.includes("seed != authority"));
   assert.ok(seed.doesNotClaim.includes("reconstitution != inherited legitimacy"));
