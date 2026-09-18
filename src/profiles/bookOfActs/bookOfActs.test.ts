@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 import {
   canonicalJson,
@@ -190,6 +191,122 @@ await test("nuBlock refuses empty receipt history", async () => {
     disposition: "unresolved",
     residualFog: [],
   }), /at least one ActReceipt/);
+});
+
+
+import { verifyActReceipt } from "./verifyReceipt";
+import { GROCERY_DELIVERY_ACT_V0, retrospectiveGroceryAct } from "./fixtures";
+
+await test("independent verifier reproduces a valid receipt", async () => {
+  const receipt = await compileAct(baseAct);
+  const result = await verifyActReceipt(receipt, baseAct);
+
+  assert.equal(result.status, "VALID");
+  assert.equal(result.checks.actDigestMatches, true);
+  assert.equal(result.checks.receiptIdMatches, true);
+  assert.equal(result.checks.compilerIdentityMatches, true);
+});
+
+await test("tampered particular is a mismatch", async () => {
+  const receipt = await compileAct(baseAct);
+  const tampered = structuredClone(baseAct);
+  tampered.residualFog.push("invented later");
+
+  const result = await verifyActReceipt(receipt, tampered);
+  assert.equal(result.status, "MISMATCH");
+  assert.equal(result.checks.actDigestMatches, false);
+});
+
+await test("verification is read-only", async () => {
+  const act = structuredClone(baseAct);
+  const receipt = await compileAct(act);
+  const beforeAct = JSON.stringify(act);
+  const beforeReceipt = JSON.stringify(receipt);
+
+  await verifyActReceipt(receipt, act);
+
+  assert.equal(JSON.stringify(act), beforeAct);
+  assert.equal(JSON.stringify(receipt), beforeReceipt);
+});
+
+await test("grocery specimen has no economic or training grant", () => {
+  assert.equal(GROCERY_DELIVERY_ACT_V0.disclosure.aiTraining, "not-granted");
+  assert.equal("economicProjection" in GROCERY_DELIVERY_ACT_V0, false);
+});
+
+await test("same summary but different particulars has different identity", async () => {
+  const left = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  const right = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  right.constraints[0].kind = "refrigeration-gap";
+
+  assert.notEqual(
+    (await compileAct(left)).receiptId,
+    (await compileAct(right)).receiptId,
+  );
+});
+
+await test("removing residual fog changes receipt identity", async () => {
+  const clear = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  clear.residualFog = [];
+
+  assert.notEqual(
+    (await compileAct(GROCERY_DELIVERY_ACT_V0)).receiptId,
+    (await compileAct(clear)).receiptId,
+  );
+});
+
+await test("retrospective binding cannot masquerade as contemporaneous", async () => {
+  const contemporary = await compileAct(GROCERY_DELIVERY_ACT_V0);
+  const retrospective = await compileAct(retrospectiveGroceryAct());
+
+  assert.notEqual(contemporary.receiptId, retrospective.receiptId);
+  assert.equal(retrospective.temporalBinding.relation, "retrospective");
+  assert.notEqual(
+    retrospective.temporalBinding.subjectOccurrenceRef,
+    retrospective.temporalBinding.declarationOccurrenceRef,
+  );
+});
+
+await test("witness count grants no authority field", async () => {
+  const manyWitnesses = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  manyWitnesses.witnessRefs = Array.from(
+    { length: 100 },
+    (_, index) => `witness:${index}`,
+  );
+
+  const receipt = await compileAct(manyWitnesses);
+  assert.equal("authority" in receipt, false);
+  assert.ok(receipt.doesNotClaim.includes("receipt != authority"));
+});
+
+await test("partial completion remains history", async () => {
+  const partial = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  partial.disposition = "partial";
+
+  const receipt = await compileAct(partial);
+  const block = await closeNuBlock({
+    subjectRef: partial.subject.ref,
+    receipts: [receipt],
+    artifactRefs: partial.artifactRefs,
+    disposition: "partial",
+    residualFog: partial.residualFog,
+  });
+
+  assert.equal(receipt.disposition, "partial");
+  assert.equal(block.disposition, "partial");
+});
+
+await test("Book of Acts evidence scope preserves non-authority claims", async () => {
+  const raw = await readFile(
+    new URL("../../../evidence/book-of-acts-v0-scope.json", import.meta.url),
+    "utf8",
+  );
+  const scope = JSON.parse(raw);
+
+  assert.equal(scope.profile, "nuthang/book-of-acts/v0");
+  assert.ok(scope.does_not_claim.includes("human worth"));
+  assert.ok(scope.does_not_claim.includes("economic value"));
+  assert.ok(scope.does_not_claim.includes("AI training consent"));
 });
 
 process.exitCode = failures === 0 ? 0 : 1;
