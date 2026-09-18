@@ -309,4 +309,99 @@ await test("Book of Acts evidence scope preserves non-authority claims", async (
   assert.ok(scope.does_not_claim.includes("AI training consent"));
 });
 
+import { prepareHelpCaseActDraft } from "./helpCaseAdapter";
+
+const helpCasePacket = {
+  schema: "help-case-status/v0" as const,
+  caseId: "help-case:abc",
+  sourceEnvelopeId: "env-1",
+  sourcePayloadHash: "sha256:abc",
+  projectedAt: "2026-09-18T16:30:00.000Z",
+  projectionCut: {
+    eventRefs: ["report-1", "confirm-1"],
+    occurrences: [
+      {
+        eventRef: "report-1",
+        type: "delivery.reported",
+        occurredAt: "2026-09-18T16:20:00.000Z",
+      },
+      {
+        eventRef: "confirm-1",
+        type: "receipt.confirmed",
+        occurredAt: "2026-09-18T16:25:00.000Z",
+      },
+    ],
+  },
+  requirements: [{
+    requirementId: "ingredient:beans",
+    description: "Beans",
+    unit: "can",
+    requestedQuantity: 4,
+    confirmedReceivedQuantity: 2,
+    resolvedElsewhereQuantity: 0,
+    waivedQuantity: 0,
+    confirmedResidualQuantity: 2,
+    excessResolvedQuantity: 0,
+    qualitativeResolved: false,
+    warnings: [],
+  }],
+};
+
+await test("help-case adapter accepts only a selected receipt confirmation", () => {
+  assert.throws(
+    () => prepareHelpCaseActDraft({
+      packet: helpCasePacket,
+      requirementId: "ingredient:beans",
+      confirmationOccurrenceRef: "report-1",
+      actId: "act:help-case-1",
+      subjectOccurrenceRef: "request:env-1",
+    }),
+    /BOOK_OF_ACTS_REQUIRES_CONFIRMED_RECEIPT_OCCURRENCE/,
+  );
+});
+
+await test("help-case adapter prepares a partial act without compiling it", () => {
+  const candidate = prepareHelpCaseActDraft({
+    packet: helpCasePacket,
+    requirementId: "ingredient:beans",
+    confirmationOccurrenceRef: "confirm-1",
+    actId: "act:help-case-1",
+    subjectOccurrenceRef: "request:env-1",
+    participants: [{
+      actorRef: "human:helper",
+      declaredCapacity: "neighbor",
+      contributionRefs: [],
+    }],
+    witnessRefs: ["human:recipient"],
+    communityMemory: "named-circle",
+  });
+
+  assert.equal(candidate.status, "human-review-required");
+  assert.equal(candidate.compilationPerformed, false);
+  assert.equal(candidate.particular.disposition, "partial");
+  assert.equal(candidate.particular.occurrences[0].evidenceClass, "reported");
+  assert.equal(candidate.particular.disclosure.aiTraining, "not-granted");
+  assert.equal(candidate.particular.temporalBinding.relation, "unresolved");
+  assert.ok(candidate.particular.residualFog.some((value) => value.includes("2 can")));
+  assert.equal("receiptId" in candidate, false);
+});
+
+await test("help-case adapter may scope-complete only the selected requirement", () => {
+  const completePacket = structuredClone(helpCasePacket);
+  completePacket.requirements[0].confirmedReceivedQuantity = 4;
+  completePacket.requirements[0].confirmedResidualQuantity = 0;
+
+  const candidate = prepareHelpCaseActDraft({
+    packet: completePacket,
+    requirementId: "ingredient:beans",
+    confirmationOccurrenceRef: "confirm-1",
+    actId: "act:help-case-complete",
+    subjectOccurrenceRef: "request:env-1",
+  });
+
+  assert.equal(candidate.particular.disposition, "scoped_complete");
+  assert.equal(candidate.particular.subject.kind, "community-help-requirement");
+  assert.equal(candidate.compilationPerformed, false);
+});
+
 process.exitCode = failures === 0 ? 0 : 1;
