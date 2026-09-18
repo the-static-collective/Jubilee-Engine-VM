@@ -144,7 +144,10 @@ await test("reported evidence stays reported", async () => {
 });
 
 await test("training permission cannot be granted in v0 ParticularAct", async () => {
-  const invalid = structuredClone(baseAct) as ParticularActV0 & {
+  const invalid = structuredClone(baseAct) as unknown as Omit<
+    ParticularActV0,
+    "disclosure"
+  > & {
     disclosure: { communityMemory: "named-circle"; aiTraining: string };
   };
   invalid.disclosure.aiTraining = "granted";
