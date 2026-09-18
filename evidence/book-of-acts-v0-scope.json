@@ -1,0 +1,21 @@
+{
+  "profile": "nuthang/book-of-acts/v0",
+  "verification_mode": "local_deterministic_reproducibility",
+  "claims": [
+    "the supplied particular canonicalizes deterministically",
+    "the supplied particular reproduces the named act digest",
+    "the supplied compiler identity and particular reproduce the named receipt identity",
+    "explicit nuBlock disposition remains part of block identity"
+  ],
+  "does_not_claim": [
+    "human worth",
+    "legal validity",
+    "economic value",
+    "token entitlement",
+    "authority",
+    "consensus on meaning",
+    "AI training consent",
+    "future availability",
+    "global identity"
+  ]
+}
