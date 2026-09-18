@@ -149,3 +149,15 @@ npm run build
 ---
 
 *Jubilee is a formal workspace representation. Play, trace, and verify with sovereign safety.*
+
+## nuThang / Book of Acts v0
+
+The first executable **Book of Acts** profile preserves bounded attributable human/community acts as irreducible particulars before any economic, reputational, organizational, or AI projection.
+
+- Design: [`docs/superpowers/specs/2026-09-18-nuthang-book-of-acts-v0-design.md`](docs/superpowers/specs/2026-09-18-nuthang-book-of-acts-v0-design.md)
+- Executable boundary: [`docs/book-of-acts-v0.md`](docs/book-of-acts-v0.md)
+- Verification scope: [`evidence/book-of-acts-v0-scope.json`](evidence/book-of-acts-v0-scope.json)
+
+Book of Acts v0 does **not** issue tokens, money, reputation, authority, or AI-training permission.
+
+> **THE PARTICULAR SURVIVES EVERY PROJECTION.**
