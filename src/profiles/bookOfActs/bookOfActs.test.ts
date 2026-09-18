@@ -151,4 +151,45 @@ await test("training permission cannot be granted in v0 ParticularAct", async ()
   await assert.rejects(() => compileAct(invalid as ParticularActV0), /aiTraining/);
 });
 
+
+import { closeNuBlock } from "./nuBlock";
+
+await test("nuBlock closes only with explicit disposition", async () => {
+  const receipt = await compileAct(baseAct);
+  const block = await closeNuBlock({
+    subjectRef: baseAct.subject.ref,
+    receipts: [receipt],
+    artifactRefs: baseAct.artifactRefs,
+    disposition: "scoped_complete",
+    residualFog: baseAct.residualFog,
+  });
+
+  assert.equal(block.disposition, "scoped_complete");
+  assert.deepEqual(block.actReceiptRefs, [receipt.receiptId]);
+});
+
+await test("changing block disposition changes block identity", async () => {
+  const receipt = await compileAct(baseAct);
+  const common = {
+    subjectRef: baseAct.subject.ref,
+    receipts: [receipt],
+    artifactRefs: baseAct.artifactRefs,
+    residualFog: baseAct.residualFog,
+  };
+
+  const completed = await closeNuBlock({ ...common, disposition: "scoped_complete" });
+  const partial = await closeNuBlock({ ...common, disposition: "partial" });
+  assert.notEqual(completed.blockId, partial.blockId);
+});
+
+await test("nuBlock refuses empty receipt history", async () => {
+  await assert.rejects(() => closeNuBlock({
+    subjectRef: baseAct.subject.ref,
+    receipts: [],
+    artifactRefs: [],
+    disposition: "unresolved",
+    residualFog: [],
+  }), /at least one ActReceipt/);
+});
+
 process.exitCode = failures === 0 ? 0 : 1;
