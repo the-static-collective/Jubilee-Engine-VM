@@ -76,3 +76,14 @@ export type ActReceiptV0 = {
   };
   doesNotClaim: string[];
 };
+
+export type NuBlockV0 = {
+  schema: "nuthang.nu-block/0.1";
+  blockId: string;
+  profile: "nuthang/book-of-acts/v0";
+  subjectRef: string;
+  actReceiptRefs: string[];
+  artifactRefs: string[];
+  disposition: ActDispositionV0;
+  residualFog: string[];
+};
