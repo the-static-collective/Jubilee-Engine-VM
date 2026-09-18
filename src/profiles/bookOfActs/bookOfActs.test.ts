@@ -235,8 +235,8 @@ await test("grocery specimen has no economic or training grant", () => {
 });
 
 await test("same summary but different particulars has different identity", async () => {
-  const left = structuredClone(GROCERY_DELIVERY_ACT_V0);
-  const right = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  const left = structuredClone(GROCERY_DELIVERY_ACT_V0) as ParticularActV0;
+  const right = structuredClone(GROCERY_DELIVERY_ACT_V0) as ParticularActV0;
   right.constraints[0].kind = "refrigeration-gap";
 
   assert.notEqual(
@@ -246,7 +246,7 @@ await test("same summary but different particulars has different identity", asyn
 });
 
 await test("removing residual fog changes receipt identity", async () => {
-  const clear = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  const clear = structuredClone(GROCERY_DELIVERY_ACT_V0) as ParticularActV0;
   clear.residualFog = [];
 
   assert.notEqual(
@@ -268,7 +268,7 @@ await test("retrospective binding cannot masquerade as contemporaneous", async (
 });
 
 await test("witness count grants no authority field", async () => {
-  const manyWitnesses = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  const manyWitnesses = structuredClone(GROCERY_DELIVERY_ACT_V0) as ParticularActV0;
   manyWitnesses.witnessRefs = Array.from(
     { length: 100 },
     (_, index) => `witness:${index}`,
@@ -280,7 +280,7 @@ await test("witness count grants no authority field", async () => {
 });
 
 await test("partial completion remains history", async () => {
-  const partial = structuredClone(GROCERY_DELIVERY_ACT_V0);
+  const partial = structuredClone(GROCERY_DELIVERY_ACT_V0) as ParticularActV0;
   partial.disposition = "partial";
 
   const receipt = await compileAct(partial);
