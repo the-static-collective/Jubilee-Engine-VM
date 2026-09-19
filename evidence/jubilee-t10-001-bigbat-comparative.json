@@ -1,0 +1,74 @@
+{
+  "specimen": "JUBILEE-T10-001-BIGBAT-COMPARATIVE-001",
+  "parent": "JUBILEE-T10-001",
+  "prior_pressure": [
+    "JUBILEE-T10-001-WOLFRAM-PRESSURE-001",
+    "JUBILEE-T10-001-BIGBAT-TEXT-HISTORY-001"
+  ],
+  "verdict": "survives_genericity_attack",
+  "generic_primitives": [
+    "public_attributable_gate",
+    "hold_or_enforcement_pause",
+    "bounded_discharge",
+    "release_without_history_erasure",
+    "reparation_or_restoration_as_distinct_operation"
+  ],
+  "sample_systems": {
+    "levitical_jubilee": {
+      "recursive_7x7_count": true,
+      "fixed_calendar_gate": true,
+      "bounded_release": true,
+      "return_distinct_from_release": true,
+      "hereditary_holding_return": true
+    },
+    "mesopotamian_clean_slate": {
+      "recursive_7x7_count": false,
+      "fixed_calendar_gate": false,
+      "bounded_release": true,
+      "public_gate": true,
+      "royal_discretion_or_event_trigger": true
+    },
+    "solonian_reform": {
+      "recursive_7x7_count": false,
+      "fixed_calendar_gate": false,
+      "debt_relief": true,
+      "debt_bondage_reform": true,
+      "land_restoration": "disputed"
+    },
+    "us_bankruptcy": {
+      "recursive_7x7_count": false,
+      "fixed_calendar_gate": false,
+      "hold": true,
+      "bounded_discharge": true,
+      "record_survives": true
+    },
+    "south_african_trc": {
+      "recursive_7x7_count": false,
+      "fixed_calendar_gate": false,
+      "amnesty": true,
+      "truth_record": true,
+      "reparation_distinct": true
+    }
+  },
+  "surviving_claim": "sampled systems do not reproduce the full Jubilee composition",
+  "nonclaim": "global historical uniqueness is not established",
+  "killed_uniqueness_claims": [
+    "release_without_erasure_is_uniquely_jubilee",
+    "hold_before_discharge_is_uniquely_jubilee",
+    "public_proclamation_is_uniquely_jubilee",
+    "release_and_restoration_separation_is_uniquely_jubilee"
+  ],
+  "architecture_effect": {
+    "generic_operations": [
+      "hold",
+      "release",
+      "return",
+      "restore",
+      "restitute",
+      "preserve",
+      "proclaim",
+      "advance"
+    ],
+    "composition_rule": "constitution declares lawful combination; operations do not silently acquire Jubilee authority"
+  }
+}
