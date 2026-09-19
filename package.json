@@ -12,7 +12,8 @@
     "test:book-of-acts": "tsx src/profiles/bookOfActs/bookOfActs.test.ts",
     "test:jubilee-t10": "node scripts/jubilee-t10-001.mjs",
     "test:jubilee-pressure": "node scripts/jubilee-t10-001-wolfram-pressure-001.mjs",
-    "test:jubilee-bigbat": "node scripts/jubilee-t10-001-bigbat-text-history-001.mjs"
+    "test:jubilee-bigbat": "node scripts/jubilee-t10-001-bigbat-text-history-001.mjs",
+    "test:jubilee-comparative": "node scripts/jubilee-t10-001-bigbat-comparative-001.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
