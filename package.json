@@ -10,7 +10,8 @@
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
     "test:book-of-acts": "tsx src/profiles/bookOfActs/bookOfActs.test.ts",
-    "test:jubilee-t10": "node scripts/jubilee-t10-001.mjs"
+    "test:jubilee-t10": "node scripts/jubilee-t10-001.mjs",
+    "test:jubilee-pressure": "node scripts/jubilee-t10-001-wolfram-pressure-001.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
