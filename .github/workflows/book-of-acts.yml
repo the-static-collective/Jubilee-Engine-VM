@@ -36,6 +36,9 @@ jobs:
       - name: BIGBAT textual history claim gate
         run: npm run test:jubilee-bigbat
 
+      - name: Comparative systems claim gate
+        run: npm run test:jubilee-comparative
+
       - name: Typecheck
         run: npm run lint
 
