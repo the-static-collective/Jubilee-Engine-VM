@@ -27,6 +27,9 @@ jobs:
       - name: Book of Acts tests
         run: npm run test:book-of-acts
 
+      - name: JUBILEE-T10-001 replay
+        run: npm run test:jubilee-t10
+
       - name: Typecheck
         run: npm run lint
 
