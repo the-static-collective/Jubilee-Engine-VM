@@ -1,5 +1,24 @@
 # Jubilee Engine VM (v3.2.4-reproducibility)
 
+## Current public direction — Book of Acts / nuThang
+
+The current edge is **act-first, not token-first**.
+
+```text
+irreducible particular
+  → attributable act
+  → bounded occurrence
+  → witnesses / evidence classes
+  → receipt
+  → consequences
+  → demonstrated capacity
+  → optional later projections
+```
+
+A confirmed community-help occurrence can now be prepared as a **Book of Acts draft for human review** while retaining requirement lineage, constraints, evidence class, disposition, and residual fog. That handoff does not automatically compile a block or create money, token value, reputation, consensus, authority, or AI-training permission.
+
+> **THE PARTICULAR SURVIVES EVERY PROJECTION.**
+
 A formal, deterministic, non-erasure graph engine for stable multi-graph compilation, DAG projection, and cryptographically verifiable receipt generation.
 
 ---
