@@ -30,6 +30,9 @@ jobs:
       - name: JUBILEE-T10-001 replay
         run: npm run test:jubilee-t10
 
+      - name: Wolfram pressure replay
+        run: npm run test:jubilee-pressure
+
       - name: Typecheck
         run: npm run lint
 
