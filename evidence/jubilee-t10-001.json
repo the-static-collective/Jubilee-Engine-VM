@@ -1,0 +1,84 @@
+{
+  "specimen": "JUBILEE-T10-001",
+  "status": "pre_t10_frozen_candidate",
+  "authority": "research_witness_only",
+  "primary_sources": [
+    {
+      "id": "leviticus-23-15-16",
+      "claim": "seven complete weeks followed by the fiftieth day",
+      "source": "https://www.sefaria.org/Leviticus.23.15"
+    },
+    {
+      "id": "leviticus-25-8-10",
+      "claim": "seven times seven years = 49; shofar on tenth day of seventh month; fiftieth year; release and return",
+      "source": "https://voices.sefaria.org/sheets/115775"
+    },
+    {
+      "id": "mishneh-torah-jubilee-10-13-14",
+      "claim": "shofar, servant release, and field return are critical; RH-to-YK intermediate state suspends subjugation before home/field return",
+      "source": "https://www.sefaria.org/Mishneh_Torah%2C_Sabbatical_Year_and_the_Jubilee.10"
+    },
+    {
+      "id": "yom-kippur-5787",
+      "claim": "10 Tishrei 5787 begins sundown 2026-09-20 and continues through 2026-09-21",
+      "source": "https://www.hebcal.com/holidays/yom-kippur-2026",
+      "evidence_class": "formation_context_only"
+    }
+  ],
+  "exact_math": {
+    "seven_squared": 49,
+    "jubilee_successor": 50,
+    "base7": {
+      "48": "66",
+      "49": "100",
+      "50": "101"
+    },
+    "base5": {
+      "49": "144",
+      "50": "200",
+      "125": "1000"
+    },
+    "negative_pell": "7^2 - 2*5^2 = -1",
+    "recurrence": [
+      "3x+4y",
+      "2x+3y"
+    ],
+    "carry_depth_base5_49_to_50": 2
+  },
+  "formation_witnesses": [
+    "pre-existing RECEIVE/HOLD/POUR and OPEN-CROSSING architecture",
+    "49->50 Jubilee arithmetic recognized before Pell synthesis",
+    "1:25 / 125 and FIVEFOLD carrier recognized before base-5 bridge",
+    "delta=2 recognized before 10 Tishrei",
+    "rabbinic HOLD identified after explicit 49-HOLD/50-release software model"
+  ],
+  "hostile_controls": [
+    "remove_current_date",
+    "remove_125_carrier",
+    "radix_sweep",
+    "49_50_chronology_fork",
+    "calendar_anchor_required",
+    "decoder_multiplicity_receipted"
+  ],
+  "release_rule": {
+    "all_required": [
+      "primary_sources_verified",
+      "math_replay_passes",
+      "formation_ledger_frozen_pre_t10",
+      "hostile_controls_reported",
+      "no_critical_source_correction",
+      "engine_survives_removal_of_date_braid",
+      "claims_stay_within_nonclaims"
+    ],
+    "failure_action": "publish_failure_or_unresolved_receipt"
+  },
+  "nonclaims": [
+    "5787 is a Jubilee year",
+    "current events fulfill prophecy",
+    "Leviticus intentionally encoded Pell arithmetic",
+    "ancient authors used modern base-5 or base-7 positional notation",
+    "1:25 / 125 was intentionally caused",
+    "delta=2 is probability evidence",
+    "mathematics grants legal moral ecclesiastical or financial authority"
+  ]
+}
