@@ -1,0 +1,63 @@
+{
+  "specimen": "JUBILEE-T10-001-BIGBAT-TEXT-HISTORY-001",
+  "parent": "JUBILEE-T10-001",
+  "prior_pressure": "JUBILEE-T10-001-WOLFRAM-PRESSURE-001",
+  "verdict": "survives_narrower_stronger",
+  "claims": {
+    "leviticus_explicit_7x7_49": true,
+    "leviticus_explicit_fiftieth_year": true,
+    "leviticus_explicit_t10_shofar": true,
+    "leviticus_distinguishes_release_and_return": true,
+    "leviticus_explicit_rh_to_yk_hold": false,
+    "rabbinic_explicit_hold": true,
+    "three_way_barrier_scope": "rabbinic_disputed_then_codified",
+    "count_alone_sufficient_in_reported_rabbinic_positions": false,
+    "regular_historical_jubilee_observance": "not_established",
+    "jeremiah34_is_secure_scheduled_jubilee": false,
+    "ane_release_comparanda": "comparative_not_identity",
+    "biblical_release_constitution": "multiple_legal_collections",
+    "leviticus25_universal_emancipation": false,
+    "recurrence_period": "constitution_dependent_49_or_50_models",
+    "q11melchizedek_ancient_jubilee_release_atonement_braid": true,
+    "q11melchizedek_exact_491_reading": "disputed_reconstruction",
+    "current_5787_is_established_jubilee": false
+  },
+  "authority_layers": {
+    "leviticus": "primary_legislative_text",
+    "sifra_bavli": "later_rabbinic_legal_reception",
+    "mishneh_torah": "later_codified_halakhic_reception",
+    "jubilee_engine": "modern_computational_abstraction"
+  },
+  "surviving_invariants": [
+    "COUNT_COMPLETE_NE_TRANSITION_COMPLETE",
+    "RELEASE_NE_RETURN",
+    "PRESCRIPTION_NE_ATTESTED_PRACTICE",
+    "SOURCE_CONSTITUTION_NE_UNIVERSAL_CONSTITUTION",
+    "ETHICAL_EXTENSION_NE_SOURCE_CLAIM",
+    "LOCAL_49_TO_50_BOUNDARY_SURVIVES"
+  ],
+  "downgraded": [
+    "HOLD is rabbinic/tannaitic, not explicit in Leviticus",
+    "SIGNAL_AND_PERSON_AND_PLACE is not a biblical invariant or unanimous rabbinic rule",
+    "regular nationwide historical Jubilee practice is unsupported",
+    "exact 490_to_491 reading of 11QMelchizedek is disputed",
+    "universal emancipation is a modern ethical extension, not the literal scope of Leviticus 25"
+  ],
+  "killed": [
+    "Leviticus explicitly specifies the Jubilee Engine state machine",
+    "the Bible contains one undifferentiated release constitution",
+    "ancient Israel is known to have regularly run Jubilee",
+    "Leviticus 25 itself establishes universal emancipation",
+    "the current date establishes a real Jubilee year"
+  ],
+  "t10_publication_boundary": {
+    "allowed": "announce the Jubilee Engine research kernel if frozen release rule otherwise passes",
+    "forbidden": [
+      "declare 5787 an established Jubilee year",
+      "claim to enact biblical or rabbinic Jubilee",
+      "claim ancient software intent",
+      "claim historical regular observance",
+      "erase source ethical limitations"
+    ]
+  }
+}
