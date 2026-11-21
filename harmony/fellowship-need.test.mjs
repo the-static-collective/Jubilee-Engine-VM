@@ -53,3 +53,12 @@ test('synthetic replay cannot promote the actual childcare need', async () => {
 test('an arbitrary provider-complete object cannot be used to override the source', () => {
   assert.throws(() => assessFellowshipChildcare({...FELLOWSHIP_CHILDCARE, actualChildcareEstablished:true, verifiedCaregiverOffers:3}), /owner-pinned/);
 });
+
+test('unidentified local staff are not silently treated as a provider; external leads are explicitly unconfirmed', () => {
+  assert.equal(FELLOWSHIP_CHILDCARE.internalCaregiverIdentified, false);
+  assert.equal(FELLOWSHIP_CHILDCARE.externalProviderDiscovery, 'RESEARCH_LEADS_ONLY');
+  assert.ok(FELLOWSHIP_CHILDCARE.externalResearchLeads.length >= 2);
+  assert.ok(FELLOWSHIP_CHILDCARE.externalResearchLeads.every(x => x.status === 'NOT_CONTACTED_NOT_CONFIRMED'));
+  assert.ok(assessFellowshipChildcare().unresolved.some(x => x.id === 'caregiver-source'));
+  assert.equal(assessFellowshipChildcare().canAssignChildren, false);
+});
