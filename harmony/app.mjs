@@ -1,4 +1,5 @@
 import { FIXTURE, appendEvent, sealBundle, verifyBundle, verifyHistory } from './engine.mjs';
+import { FELLOWSHIP_CHILDCARE, assessFellowshipChildcare } from './fellowship-need.mjs';
 let history = [];
 const $ = (id) => document.getElementById(id);
 const actions = $('actions');
@@ -114,4 +115,15 @@ $('import').addEventListener('change', async (event) => {
   } catch (error) { feedback.textContent = 'HOLD: import rejected — ' + error.message; }
 });
 $('reset').addEventListener('click', async () => { history=[]; feedback.textContent='Started a new in-memory rehearsal.'; await render(); });
+function renderRealNeed() {
+  const source = FELLOWSHIP_CHILDCARE;
+  const assessment = assessFellowshipChildcare();
+  if (assessment.canAssignChildren || assessment.confirmedCoverage || assessment.candidateChords.length !== 0) throw new Error('public childcare projection must remain unfilled');
+  const list = $('realNeedBlockers');
+  list.replaceChildren();
+  for (const blocker of assessment.unresolved) list.append(node('li', 'gate', blocker.label));
+  $('realNeedNext').textContent = source.nextStep;
+  $('realNeedSource').href = source.sourceUrl;
+}
+renderRealNeed();
 await render();
