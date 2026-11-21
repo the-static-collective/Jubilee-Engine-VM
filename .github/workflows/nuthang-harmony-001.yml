@@ -1,0 +1,24 @@
+name: nuthang-harmony-001
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  first-chord:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check browser module
+        run: node --check harmony/engine.mjs && node --check harmony/app.mjs && node --check harmony/fellowship-need.mjs
+      - name: Run deterministic and adversarial first-chord proofs
+        run: node --test harmony/engine.test.mjs harmony/fellowship-need.test.mjs
