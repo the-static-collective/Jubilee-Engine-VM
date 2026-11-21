@@ -4,6 +4,18 @@
 
 **Home:** Jubilee Engine VM, beside the existing Book of Acts nuThang profile. Jubilee owns this experiment and **does not confer Jubilee ActReceipt authority** on its output. The separate TABLElogic conceptual grammar is a cited design neighbor, not an imported service.
 
+## First real need: FELLOWSHIP childcare (2026-12-04)
+
+**Source authority:** [fellowSHIP's public-safe childcare need](https://github.com/the-static-collective/fellowSHIP/pull/2), in a separate **draft** PR owned by the actual event project. This Jubilee experiment adds `harmony/fellowship-need.mjs` as a **source-pinned, read-only projection**, not a second authoritative registry.
+
+The event has an organizer-declared actual need for supervised childcare at Riverside Church, Minneapolis, on December 4. Childcare coverage hours, the number/ages of children, regulatory determination, available approved staff, parent processes and suitable space remain **unknown or unconfirmed**.
+
+**Public status: OPEN_UNFILLED.** The projection has zero verified childcare-provider offers and explicitly cannot advertise care or assign children. The only suggested action is to ask the authorized church safeguarding lead whether the host can support a safe service. Do not collect children's identities, medical information, guardian contacts, background checks, or provider details in this repository.
+
+The original *supper* First Chord remains a **strictly fictional rehearsal**, visibly separated in the UI. Its synthetic successful return cannot change the real childcare need. The real need is **not** used as an alias inside the synthetic engine and will not be inserted into a Book of Acts receipt.
+
+Minnesota licensing applicability requires host review; see [MN Statutes §142B.05](https://www.revisor.mn.gov/statutes/cite/142B.05) and [DCYF](https://dcyf.mn.gov/partners-and-providers/licensing/child-care-centers/apply-child-care-center-license). The rules can distinguish on-site short-duration care from other arrangements; no assumption of a religious-worship exemption is warranted for a Friday open mic. No childcare may be advertised as available until the host actually approves and staffs it.
+
 ## Purpose
 
 Prove that three independently sourced fictional capacities can be composed into a candidate chord while one omitted permission remains a distinct required gate. Then prove that one local invitation, voluntary alias decisions, an attempted action, a report, a different alias's review, and a return can remain reconstructible without treating any of those statements as verified physical facts.
